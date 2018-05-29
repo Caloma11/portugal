@@ -1,1 +1,35 @@
-<h1><%= @realty.name  %></h1>
+<div class="container">
+
+
+<% arr = ['https://images.unsplash.com/photo-1470485856497-86770058d4e4?ixlib=rb-0.3.5&s=f1812aa677b1314187cd0d74ec2ea48e&auto=format&fit=crop&w=1534&q=80', 'https://images.unsplash.com/photo-1521111998-ef042c1931fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=439ade2915c259a0e9a80ab0c36e5e09&auto=format&fit=crop&w=334&q=80', 'https://images.unsplash.com/photo-1524082983062-21c24967d6c9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0a1532b84f66efdf63f7af7b1f0493f5&auto=format&fit=crop&w=429&q=80', 'https://images.unsplash.com/photo-1481078702198-2c0b5710c1ba?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=97eb67b365527e5c6acdb808ba3a6028&auto=format&fit=crop&w=750&q=80', 'https://images.unsplash.com/photo-1466150186684-fe056d25af64?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f8b48fb28f68485e591dc3ecfed0c5b3&auto=format&fit=crop&w=334&q=80', 'https://images.unsplash.com/photo-1509870449717-5609536a5393?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1f8816c7c618b917b7a121af8875f376&auto=format&fit=crop&w=753&q=80', 'https://images.unsplash.com/photo-1460667159118-4194867909d7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3da906e12729130c35444fc934e0403f&auto=format&fit=crop&w=750&q=80', 'https://images.unsplash.com/photo-1495136568018-11a54caad6b5?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b4d19de84a578b1175e85e0811f41c97&auto=format&fit=crop&w=750&q=80', 'https://images.unsplash.com/photo-1512507064038-c82d88de3492?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=11f16b2df2679b3221c9659e76149b28&auto=format&fit=crop&w=334&q=80', 'https://images.unsplash.com/photo-1485996463739-9cb09adbe6c5?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b1217d3a563917265701725a148e7509&auto=format&fit=crop&w=750&q=80', 'https://images.unsplash.com/photo-1433786032442-3011415d2fb9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=457bc58d0129c9e3e0f3a0e827c7883d&auto=format&fit=crop&w=771&q=80', 'https://images.unsplash.com/photo-1504615755583-2916b52192a3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8a6b074881abc7cdc7abe977ce728ac9&auto=format&fit=crop&w=667&q=80', 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjF9&s=750958f7409f6757b2fc1a76c3f0598c&auto=format&fit=crop&w=750&q=80'] %>
+
+
+
+
+  <div class="advisor">
+
+    <div class="profile-image" style="background-image: url(<%= arr[@realty.id - 1] %>)"></div>
+    <div class="profile-details">
+      <h1><%= @realty.name %></h1>
+      <h2><%= Faker::Address.street_address  %></h2>
+
+      <p><%= @realty.description %></p>
+
+
+      <a href="#">
+
+        <div class="btn btn-success btn-block btn-lg" >Contatar vendedor</div>
+</a>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+</div>
+
+
