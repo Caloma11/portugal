@@ -1,0 +1,2 @@
+class Realty < ApplicationRecord
+end
