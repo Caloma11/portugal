@@ -15,13 +15,13 @@
     <% x = 0 %>
     <% @realties.each do |realty| %>
       <div class="card-container col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= arr[x] %>);">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= realty.main_image %>);">
 
 
           <a class="card-link" href=<%= realty_path(realty) %> ></a>
         </div>
           <div class="card-description">
-            <h2><%= realty.name %></h2>
+            <h2><%= realty.title %></h2>
           </div>
       </div>
       <% x += 1 %>
