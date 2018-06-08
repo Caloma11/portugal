@@ -42,13 +42,38 @@ urls.each do |url|
 
 
 
+  nodeset = element.css('a')
+  array_of_links = nodeset.map {|x| x["href"]}.compact
+  item_link = array_of_links.select{ |i| i[/^https:\/\/www.imovirtual.com\/anuncio\//] }[0]
+
+    item_html_file = open(item_link).read
+    item_html_doc = Nokogiri::HTML(item_html_file)
+
+
+    characs = item_html_doc.search('.dotted-list li').text
+    description = item_html_doc.search('.text-contents div p')[2].text
+
+    secondary_images = []
+
+    item_html_doc.search('.slider-for img').each do |img|
+      secondary_images << img['src']
+    end
+
+
+
+
+
+
     Realty.create(:title => title,
                   :subtitle => subtitle,
                   :price => price,
                   :rooms => rooms,
                   :area => area,
                   :price_per_meter => price_per_meter,
-                  :main_image => main_image
+                  :main_image => main_image,
+                  :characs => characs,
+                  :description => description,
+                  :secondary_images => secondary_images,
                   )
 
 

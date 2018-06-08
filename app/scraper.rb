@@ -21,14 +21,28 @@ html_doc.search('.offer-item').each do |element|
   rooms = element.search('.offer-item-rooms').text.strip
   area = element.search('.offer-item-area').text.strip
   price_per_meter = element.search('.offer-item-price-per-m').text.strip
-  main_image = element.search('.offer-item-image .img-cover').map{ |n| n['style'][/url\((.+)\)/, 1] }[0]
+  main_image = element.search('.offer-item-image .img-cover').map{ |n| n['style'][/url\((.+)\)/, 1] }m[0]
 
   nodeset = element.css('a')
   array_of_links = nodeset.map {|x| x["href"]}.compact
-  song_link = array_of_links.select{ |i| i[/^https:\/\/www.imovirtual.com\/anuncio\//] }
+  item_link = array_of_links.select{ |i| i[/^https:\/\/www.imovirtual.com\/anuncio\//] }[0]
+
+    item_html_file = open(item_link).read
+    item_html_doc = Nokogiri::HTML(item_html_file)
 
 
-  puts "#{title}  -   #{song_link}"
+    characs = item_html_doc.search('.dotted-list li').text
+    description = item_html_doc.search('.text-contents div p')[2].text
+
+    secondary_images = item_html_doc.search('.slider-for img').each do |img|
+      img << z['src']
+    end
+
+
+
+
+
+  puts "#{title}  -   #{item_link}"
 
 
 
@@ -41,7 +55,10 @@ html_doc.search('.offer-item').each do |element|
                 :rooms => rooms,
                 :area => area,
                 :price_per_meter => price_per_meter,
-                :main_image => main_image
+                :main_image => main_image,
+                :characs => characs,
+                :description => description,
+                :secondary_images => secondary_images
                 }
 
 
