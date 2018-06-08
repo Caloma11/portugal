@@ -29,7 +29,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def realty_params
-      params.require(:realty).permit(:name, :description)
+      params.require(:realty).permit(:title, :description, :subtitle, :price, :rooms, :area, :price_per_meter, :main_image, :characs, :secondary_images)
     end
 
 end
